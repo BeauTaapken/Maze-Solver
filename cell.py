@@ -13,6 +13,7 @@ class Cell():
         self._y1 = None
         self._y2 = None
         self.win = win
+        self.visited = False
 
     def draw(self, x1, y1, x2, y2):
         if not self.win:
@@ -29,18 +30,6 @@ class Cell():
         self._draw_wall(Point(self._x1, self._y1), Point(self._x2, self._y1), self.has_top_wall)
 
         self._draw_wall(Point(self._x1, self._y2), Point(self._x2, self._y2), self.has_bottom_wall)
-        #if self.has_left_wall:
-        #    line = Line(Point(self._x1, self._y1), Point(self._x1, self._y2))
-        #    self.win.draw_line(line, "black")
-        #if self.has_right_wall:
-        #    line = Line(Point(self._x2, self._y1), Point(self._x2, self._y2))
-        #    self.win.draw_line(line, "black")
-        #if self.has_top_wall:
-        #    line = Line(Point(self._x1, self._y1), Point(self._x2, self._y1))
-        #    self.win.draw_line(line, "black")
-        #if self.has_bottom_wall:
-        #    line = Line(Point(self._x1, self._y2), Point(self._x2, self._y2))
-        #    self.win.draw_line(line, "black")
 
     def _draw_wall(self, start, end, draw_visible_wall):
         color = "black" if draw_visible_wall else "white"
